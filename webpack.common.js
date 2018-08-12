@@ -13,15 +13,18 @@ module.exports = {
         path: path.resolve(__dirname, 'assets/dist'),
         filename: "[name].js"
     },
+    resolve: { 
+        extensions: ['*', '.js', '.jsx'] 
+    },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env']
+                        presets: ['env', 'react']
                     }
                 }
             },

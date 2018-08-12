@@ -12,3 +12,18 @@ import 'bootstrap/js/dist/scrollspy'
 import 'bootstrap/js/dist/tab'
 import 'bootstrap/js/dist/tooltip'
 import 'bootstrap/js/dist/util'
+
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+const Hello = () => {
+    return (
+        <h1>Hello, React!</h1>
+    );
+}
+
+ReactDOM.render(
+    <Hello />,
+    document.getElementById('root')
+);
