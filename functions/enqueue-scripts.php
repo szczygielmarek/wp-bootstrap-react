@@ -4,14 +4,18 @@ function site_scripts() {
         
     // Adding scripts file in the footer
     wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/dist/main.js', array( 'jquery' ), filemtime(get_template_directory() . '/assets/dist'), true );
+    wp_localize_script( 'site-js', 'wp', array(
+      'rest_url' => rest_url(),
+      'site_url' => home_url()
+    ));
 
     // Register main stylesheet
     wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/dist/main.css', array(), filemtime(get_template_directory() . '/assets/dist'), 'all' );
 
-    // Home
+    // Front Page
     if(is_front_page()) {
-      wp_enqueue_script( 'home-js', get_template_directory_uri() . '/assets/dist/home.js', array( 'jquery' ), filemtime(get_template_directory() . '/assets/dist/home.js'), true );
-      wp_enqueue_style( 'home-css', get_template_directory_uri() . '/assets/dist/home.css', array(), filemtime(get_template_directory() . '/assets/dist/home.css'), 'all' );
+      wp_enqueue_script( 'front-page-js', get_template_directory_uri() . '/assets/dist/front-page.js', array( 'jquery' ), filemtime(get_template_directory() . '/assets/dist/front-page.js'), true );
+      wp_enqueue_style( 'front-page-css', get_template_directory_uri() . '/assets/dist/front-page.css', array(), filemtime(get_template_directory() . '/assets/dist/front-page.css'), 'all' );
     }
 
     // Comment reply script for threaded comments

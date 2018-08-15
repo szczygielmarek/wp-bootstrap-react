@@ -7,7 +7,7 @@ module.exports = {
     
     entry: {
         main: "./assets/src/index.js",
-        home: "./assets/src/components/home/home.js"
+        "front-page": "./assets/src/front-page.js"
     },
     output: {
         path: path.resolve(__dirname, 'assets/dist'),

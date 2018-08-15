@@ -1,0 +1,79 @@
+.u-img-fit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.o-section {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+.o-section--small {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+
+.p-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+
+.c-single-header {
+    height: 10rem;
+}
+
+.c-post-entry {
+    color: $black;
+    &:hover {
+        text-decoration: none;
+        color: $secondary;
+    }
+
+    @include media-breakpoint-down(xs) {
+        flex-wrap: wrap;
+        &__body {
+            flex: 1 0 100%;
+            margin-top: 1rem;
+        }
+    }
+}
+
+
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+}
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-out 250ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 250ms ease-in;
+}
+
+.fade-item-enter {
+    opacity: 0.01;
+}
+.fade-item-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+.fade-item-exit {
+    opacity: 1;
+}
+.fade-item-exit-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
