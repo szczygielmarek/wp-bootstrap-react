@@ -1,4 +1,4 @@
-#wp-bootstrap-react
+# wp-bootstrap-react
 Currently using Bootstrap 4.x / React Router 4.x & React Transition 2.x / Webpack 4.x
 
 ## Demo
