@@ -1,14 +1,14 @@
 import "./home.scss";
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
-import FilterForm from './../filterForm/FilterForm';
-import Post from './../post/Post';
+import FilterForm from '../filterForm/FilterForm';
+import Post from '../post/Post';
 
-const Home = (props) => {
+const Home = ({posts, filterPosts}) => {
     
-    const {posts, filterPosts} = props;
     const postList = posts && posts.map((post) => 
         <CSSTransition 
             key={post.id} 
@@ -31,3 +31,8 @@ const Home = (props) => {
 }
 
 export default Home;
+
+Home.propTypes = {
+    posts: PropTypes.array.isRequired,
+    filterPosts: PropTypes.func.isRequired
+};

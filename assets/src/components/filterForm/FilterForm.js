@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export default class FilterForm extends Component {
     constructor(props) {
@@ -35,3 +36,7 @@ export default class FilterForm extends Component {
         );
     }
 }
+
+FilterForm.propTypes = {
+    onChange: PropTypes.func.isRequired
+};

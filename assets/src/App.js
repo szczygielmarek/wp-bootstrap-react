@@ -12,42 +12,37 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: false,
+            loading: true,
             posts: [],
-            filteredPosts: []
+            filter: '',
         };
 
         this.filterPosts = this.filterPosts.bind(this);
     }
 
-    componentWillMount() {
-        this.setState({
-            loading: true
-        });
+    componentDidMount() {
         restService.getPosts((posts) => {
             this.setState({
                 posts,
-                filteredPosts: posts,
                 loading: false
             });
         });
     }
 
     filterPosts(filter) {
-        let filteredPosts = this.state.posts;
-        filteredPosts = filteredPosts.filter((post) => {
-            let title = post.title.toLowerCase();
-            return title.indexOf(filter.toLowerCase()) > -1;
-        });
-        
         this.setState({
-            filteredPosts
-        })
+            filter
+        });
     }
 
     render() {
-        let {posts, filteredPosts} = this.state;
+        let {posts, filter} = this.state;
         
+        let filteredPosts = posts.length && posts.filter((post) => {
+            let title = post.title.toLowerCase();
+            return title.indexOf(filter.toLowerCase()) > -1;
+        });
+
         return (
             <Router>
                 {posts.length > 0 && (
@@ -59,10 +54,10 @@ export default class App extends Component {
                                 classNames="fade"
                             >
                                 <Switch location={location}>
-                                    <Route exact path="/" render={() => (
+                                    <Route exact path="/demo/" render={() => (
                                         <Home posts={filteredPosts} filterPosts={this.filterPosts} />
                                     )} />
-                                    <Route path="/:slug" render={({match}) => (
+                                    <Route path="/demo/:slug" render={({match}) => (
                                         <SinglePost post={posts.find(p => p.slug === match.params.slug)} />
                                     )} />
                                 </Switch>

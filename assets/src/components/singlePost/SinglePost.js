@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SinglePost = (props) => {
     
@@ -33,3 +34,12 @@ const SinglePost = (props) => {
 }
 
 export default SinglePost;
+
+SinglePost.propTypes = {
+    post: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        excerpt: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+        featured_image: PropTypes.string.isRequired,
+    }).isRequired
+}
